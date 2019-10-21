@@ -1,5 +1,7 @@
 # wishlist
 
+vuejs + vuex + php + mysql
+
 ## Project setup
 ```
 npm install

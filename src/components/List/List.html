@@ -1,0 +1,82 @@
+<div class="list mb-5">
+  <b-card :header="name">
+    <b-row>
+      <b-col cols="1">
+        <b-button v-if="done === '1'" variant="success" @click="toggleDone(id)" size="sm">
+            <font-awesome-icon icon="check-circle" />
+          </b-button>
+          <b-button v-else variant="warning" @click="toggleDone(id)" size="sm">
+            <font-awesome-icon icon="circle" />
+          </b-button>
+      </b-col>
+      <b-col>
+        {{name}}
+      </b-col>
+      <b-col cols="2">
+        {{showMinPrice}} - {{showMaxPrice}}
+      </b-col>
+      <b-col cols="1" class="text-right">
+        <b-button variant="danger" @click="delIt(id)" size="sm"><font-awesome-icon icon="times" /></b-button>
+      </b-col>
+    </b-row>
+
+    <div :class="{deactive : done === '1'}" class="mt-3">
+    
+      <b-list-group>
+        <Item v-for="item in itemsStore"
+             :key="item.id"
+             :id="item.id"
+             :name="item.name"
+             :link="item.link"
+             :description="item.description"
+             :price="item.price"
+             :done="item.done" />
+      </b-list-group>
+      <div class="mt-3">
+        <b-button @click="showCollpase()" variant="primary">Add new item</b-button>
+        <div v-if="collapseActive" class="mt-2">
+          <b-form @submit="onSubmit">
+            <b-row>
+              <b-col cols="3">
+                <b-input
+                  size="sm"
+                    v-model="form.name"
+                    required
+                    placeholder="Enter name"
+                  ></b-input>
+              </b-col>
+              <b-col cols="3">
+                <b-input
+                  size="sm"
+                    v-model="form.link"
+                    placeholder="Enter link"
+                  ></b-input>
+              </b-col>
+              <b-col cols="3">
+                <b-input
+                  size="sm"
+                    v-model="form.description"
+                    placeholder="Enter description"
+                  ></b-input>
+              </b-col>
+              <b-col cols="2">
+                <b-input
+                  size="sm"
+                  type="number"
+                    v-model="form.price"
+                    required
+                    placeholder="Enter price"
+                  ></b-input>
+              </b-col>
+              <b-col cols="1">
+                <b-button type="submit" variant="primary" size="sm"><font-awesome-icon icon="plus" /></b-button>
+              </b-col>
+            </b-row>
+          </b-form>
+        </div>
+      </div>
+      
+    </div>
+    
+  </b-card>
+</div>

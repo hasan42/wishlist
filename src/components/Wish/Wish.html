@@ -1,0 +1,25 @@
+<div class="wish">
+  <h1>Wishlist</h1>
+    <List v-for="list in listsStore"
+       :key="list.id"
+       :id="list.id"
+       :name="list.name"
+       :done="list.done" />
+    <div>
+      <b-form @submit="onSubmit">
+        <p>Add new category</p>
+        <b-row>
+          <b-col>
+              <b-form-input
+                v-model="form.name"
+                required
+                placeholder="Enter name"
+              ></b-form-input>
+          </b-col>
+          <b-col cols="1" class="text-right">
+            <b-button type="submit" variant="primary" size="sm"><font-awesome-icon icon="plus" /></b-button>
+          </b-col>
+        </b-row>
+      </b-form>
+    </div>
+</div>

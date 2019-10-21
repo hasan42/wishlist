@@ -1,0 +1,38 @@
+<b-list-group-item>
+  <div class="item">
+      <b-row>
+        <b-col cols="1">
+          <b-button v-if="done === '1'" variant="success" @click="toggleDone(id)" size="sm">
+            <font-awesome-icon icon="check-circle" />
+          </b-button>
+          <b-button v-else variant="warning" @click="toggleDone(id)" size="sm">
+            <font-awesome-icon icon="circle" />
+          </b-button>
+        </b-col>
+        <b-col>
+        <div v-if=link>
+          <a :href="link" target="_blank">
+            {{name}}
+          </a>
+        </div>
+        <div v-else>
+          {{name}}
+        </div>
+        </b-col>
+        <b-col cols="2">
+          {{price}}
+        </b-col>
+        <b-col cols="1" class="text-right">
+          <b-button variant="danger" @click="delIt(id)" size="sm"><font-awesome-icon icon="times" /></b-button>
+        </b-col>
+    </b-row>
+      <b-row v-if=description>
+        <b-col class="mt-3">
+          {{description}}
+        </b-col>
+      </b-row>
+
+      
+      
+  </div>
+</b-list-group-item>

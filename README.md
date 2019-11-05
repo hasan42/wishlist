@@ -2,6 +2,8 @@
 
 vuejs + vuex + php + mysql
 
+[DEMO](http://wishlist.irustam.ru/)
+
 ## Project setup
 ```
 npm install

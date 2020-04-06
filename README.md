@@ -1,33 +1,20 @@
 # wishlist
 
-vuejs + vuex + php + mysql
-
 [DEMO](http://wishlist.irustam.ru/)
 
-## Project setup
-```
-npm install
-```
+Обычный wishlist/todo на Vue + Vuex.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Для визуальной части использовал [ngBootstrap](https://ng-bootstrap.github.io/#/home). 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+**Backend:** `PHP`, `MySQL`.
 
-### Run your tests
-```
-npm run test
-```
+БД состоит из таблиц `category` - где хрянятся название категории и завершеность.  
+И `items` - название элемента, описание, ссылка, id категории, цена и завершеность.
 
-### Lints and fixes files
-```
-npm run lint
-```
+БД одна для `VUE` и аналога на `Angular`.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+На основе этих данных выстраивается список.  
+Категории сортируются по завершенности (завершенные внизу).  
+Элементы по цене - от большей к меньшей.
+
+Категории как и элементы добавляются через форму. Удаляются через кнопку.
